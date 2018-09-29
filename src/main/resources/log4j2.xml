@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <properties>
+        <!--日志位置-->
+        <property name="LOG_HOME"></property>
+        <!-- 项目名 -->
+        <property name="AppName" value="reas-test" />
+        <property name="PATTERN">${AppName} %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</property>
+    </properties>
+    <Appenders>
+
+        <!--控制台输出-->
+        <Console name="CONSOLE" target="system_out">
+            <PatternLayout pattern="${PATTERN}" />
+        </Console>
+        <!--日志文件输出每天-->
+        <RollingRandomAccessFile name="logfile" fileName="${LOG_HOME}/app.log"
+                                 filePattern="${LOG_HOME}/app-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${PATTERN}" />
+            <Policies>
+                <!-- 归档每天的文件 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <!-- 限制单个文件大小 -->
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <!-- 限制每天文件个数 -->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <!--过滤掉一些无用的log信息 -->
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+        <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+        <Logger name="org.springframework" level="info" />
+        <Logger name="com.github" level="debug" />
+        <!--日志级别-->
+        <Root level="info">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="logfile" />
+        </Root>
+    </Loggers>
+</Configuration>

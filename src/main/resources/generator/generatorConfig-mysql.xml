@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 引入 application.properties -->
+    <properties resource="application.properties" />
+
+    <!-- MyBatis3Simple：不生成 Example相关类及方法 -->
+    <context id="mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+
+        <!-- 指定生成 Mapper 的继承模板 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.rockfintech.reas.xabank.util.IBaseMapper" />
+        </plugin>
+
+        <!-- 生成 JavaBean 对象重写 toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <!-- 生成 JavaBean 对象继承 Serializable 类 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!-- 生成 JavaBean 对象重写 equals 和 hashCode 方法 -->
+        <!-- <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" /> -->
+
+        <!-- jdbc 连接配置 -->
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.rockfintech.reas.xabank.entity"
+                            targetProject="src/main/java" />
+
+        <sqlMapGenerator targetPackage="mybatis"
+                         targetProject="src/main/resources" />
+
+        <javaClientGenerator targetPackage="com.rockfintech.reas.xabank.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER" />
+
+        <!-- Mysql 配置 -->
+        <!-- <generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+        <!-- Oracle 配置 -->
+        <!-- <generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/> -->
+
+        <!-- tableName：数据库表名，domainObjectName：生成文件名 ，schema：数据源-->
+        <!--<table tableName="SIGN_SEAL_INFO" domainObjectName="SealInfo"></table>-->
+        <!--<table tableName="SIGN_CONTRACT_INFO" domainObjectName="ContractInfo"></table>-->
+        <!--<table tableName="SIGN_CLOB_INFO" domainObjectName="ClobInfo"></table>-->
+        <!--<table tableName="SIGN_ORG_INFO" domainObjectName="OrgInfo"></table>-->
+        <!--<table tableName="SIGN_USER_INFO" domainObjectName="UserInfo"></table>-->
+        <!--<table tableName="SIGN_CONTRACT_TEMPLATE" domainObjectName="ContractTemplate"></table>-->
+        <table tableName="SIGN_TEMPLATE_CHANNEL" domainObjectName="TemplateChannel"></table>
+    </context>
+</generatorConfiguration>

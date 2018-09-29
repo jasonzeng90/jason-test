@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rockfintech.reas.xabank.mapper.XaLogMapper">
+  <resultMap id="BaseResultMap" type="com.rockfintech.reas.xabank.entity.XaLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="XALOG_ID" jdbcType="VARCHAR" property="xalogId" />
+    <result column="CHID" jdbcType="VARCHAR" property="chid" />
+    <result column="ACCT_NO" jdbcType="VARCHAR" property="acctNo" />
+    <result column="REQ_MSG" jdbcType="VARCHAR" property="reqMsg" />
+    <result column="REQ_TIME" jdbcType="TIMESTAMP" property="reqTime" />
+    <result column="RES_MSG" jdbcType="VARCHAR" property="resMsg" />
+    <result column="RES_TIME" jdbcType="TIMESTAMP" property="resTime" />
+    <result column="RE_CODE" jdbcType="VARCHAR" property="reCode" />
+    <result column="RE_MSG" jdbcType="VARCHAR" property="reMsg" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>
