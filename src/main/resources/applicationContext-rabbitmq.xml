@@ -20,7 +20,7 @@
 
 	<!-- 处理队列监听 ,每个监听配置并发数量为4 -->
 	<bean name="xinAnNotice"
-		class="com.rockfintech.reas.xabank.listener.XinAnNoticeListener"></bean>
+		class="com.rockfintech.reas.springboot.listener.XinAnNoticeListener"></bean>
 	<rabbit:listener-container
 		connection-factory="connectionFactory" acknowledge="auto" concurrency="4">
 		<rabbit:listener queues="xinan_transfer" ref="xinAnNotice" />

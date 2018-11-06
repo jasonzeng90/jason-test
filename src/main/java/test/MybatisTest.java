@@ -1,12 +1,9 @@
 package test;
 
-import com.alibaba.druid.support.json.JSONUtils;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.rockfintech.reas.xabank.MainApplication;
-import com.rockfintech.reas.xabank.service.IXaLogService;
-import com.rockfintech.reas.xabank.util.json.JsonUtils;
-import org.junit.After;
+import com.rockfintech.reas.springboot.MainApplication;
+import com.rockfintech.reas.springboot.service.IXaLogService;
+import com.rockfintech.reas.springboot.util.json.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

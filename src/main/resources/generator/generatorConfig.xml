@@ -13,7 +13,7 @@
 
         <!-- 指定生成 Mapper 的继承模板 -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.rockfintech.reas.xabank.util.IBaseMapper" />
+            <property name="mappers" value="com.rockfintech.reas.springboot.util.IBaseMapper" />
         </plugin>
 
         <!-- 生成 JavaBean 对象重写 toString方法 -->
@@ -32,13 +32,13 @@
                         password="${spring.datasource.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.rockfintech.reas.xabank.entity"
+        <javaModelGenerator targetPackage="com.rockfintech.reas.springboot.entity"
                             targetProject="src/main/java" />
 
         <sqlMapGenerator targetPackage="mybatis"
                          targetProject="src/main/resources" />
 
-        <javaClientGenerator targetPackage="com.rockfintech.reas.xabank.mapper"
+        <javaClientGenerator targetPackage="com.rockfintech.reas.springboot.mapper"
                              targetProject="src/main/java" type="XMLMAPPER" />
 
         <!-- Mysql 配置 -->

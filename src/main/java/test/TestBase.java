@@ -1,6 +1,6 @@
 package test;
 
-import com.rockfintech.reas.xabank.MainApplication;
+import com.rockfintech.reas.springboot.MainApplication;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
